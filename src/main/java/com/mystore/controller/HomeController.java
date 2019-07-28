@@ -2,7 +2,6 @@ package com.mystore.controller;
 
 import com.mystore.dao.ProductDao;
 import com.mystore.model.Product;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
@@ -99,8 +99,23 @@ public class HomeController {
 
     //  When didn't specify method, default is GET
     @RequestMapping("/admin/productInventory/deleteProduct/{id}")
-    public String deleteProduct(@PathVariable String productId, Model model){
+    public String deleteProduct(@PathVariable("id") String productId, Model model, HttpServletRequest request){
         productDao.deleteProduct(productId);
+        List<Product> products=productDao.getAllProducts();
+        model.addAttribute("products",products);
+
+        String rootDirectory=request.getSession().getServletContext().getRealPath("/");
+        path= Paths.get(rootDirectory+"/WEB-INF/resources/image/"+productId+".png");
+
+        if(Files.exists(path)){
+            try{
+                Files.delete(path);
+            }catch (IOException e){
+                e.printStackTrace();
+
+            }
+
+        }
         return "redirect:/admin/productInventory";
     }
 }
