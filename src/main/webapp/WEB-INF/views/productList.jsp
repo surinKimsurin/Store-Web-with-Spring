@@ -34,7 +34,7 @@
                 <td>${product.productName}</td>
                 <td>${product.productCategory}</td>
                 <td>${product.productCondition}</td>
-                <td>${product.prouctPrice} Won</td>
+                <td>${product.productPrice} Won</td>
                 <td><a href="<spring:url value="/productList/viewProduct/${product.productId}" />"> <span class="glyphicon glyphicon-info-sign"></span></a></td>
             </tr>
             </c:forEach>

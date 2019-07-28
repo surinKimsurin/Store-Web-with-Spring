@@ -18,7 +18,7 @@
                 </div>
                 <div class="col-mid-5">
                     <h3>${product.productName}</h3>
-                    <p>${product.prouctDescription}</p>
+                    <p>${product.productDescription}</p>
 
                     <p>
                         <strong>Manufacturer</strong> : ${product.productManufacturer}
@@ -32,7 +32,7 @@
                     </p>
 
                     <p>
-                        <strong>Price</strong> : ${product.prouctPrice}
+                        <strong>Price</strong> : ${product.productPrice}
                     </p>
                 </div>
             </div>

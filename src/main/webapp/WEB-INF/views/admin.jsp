@@ -1,16 +1,23 @@
+<%@include file="/WEB-INF/views/template/header.jsp"%>
 <%--
   Created by IntelliJ IDEA.
-  User: kimsurin
-  Date: 2019-07-22
-  Time: 21:30
+  User: Le
+  Date: 1/2/2016
+  Time: 5:14 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+
+<div class="container-wrapper">
+    <div class="container">
+        <div class="page-header">
+            <h1>Administrator page</h1>
+
+            <p class="lead">This is the administrator page!</p>
+        </div>
+
+        <h3>
+            <a href="<c:url value="/admin/productInventory" />" > Product Inventory</a>
+        </h3>
+
+        <p>Here you can view, check and modify the product inventory!</p>
+<%@include file="/WEB-INF/views/template/footer.jsp"%>

@@ -1,9 +1,8 @@
 package com.mystore.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.persistence.*;
 
 /**
  * created by surinKim 19/07/21
@@ -18,12 +17,39 @@ public class Product {
     private String productId;
     private String productName;
     private String productCategory;
-    private String prouctDescription;
-    private double prouctPrice;
+    private String productDescription;
+    private double productPrice;
     private String productCondition;
     private String productStatus;
     private int unitInStock;
     private String productManufacturer;
+
+    @Transient
+    private MultipartFile productImage;;
+
+    public MultipartFile getProductImage() {
+        return productImage;
+    }
+
+    public void setProductImage(MultipartFile productImage) {
+        this.productImage = productImage;
+    }
+
+    public String getProductDescription() {
+        return productDescription;
+    }
+
+    public void setProductDescription(String productDescription) {
+        this.productDescription = productDescription;
+    }
+
+    public double getProductPrice() {
+        return productPrice;
+    }
+
+    public void setProductPrice(double productPrice) {
+        this.productPrice = productPrice;
+    }
 
     public String getProductId() {
         return productId;
@@ -39,14 +65,6 @@ public class Product {
 
     public String getProductCategory() {
         return productCategory;
-    }
-
-    public String getProuctDescription() {
-        return prouctDescription;
-    }
-
-    public double getProuctPrice() {
-        return prouctPrice;
     }
 
     public String getProductCondition() {
@@ -73,14 +91,6 @@ public class Product {
         this.productCategory = productCategory;
     }
 
-    public void setProuctDescription(String prouctDescription) {
-        this.prouctDescription = prouctDescription;
-    }
-
-    public void setProuctPrice(double prouctPrice) {
-        this.prouctPrice = prouctPrice;
-    }
-
     public void setProductCondition(String productCondition) {
         this.productCondition = productCondition;
     }
@@ -96,4 +106,5 @@ public class Product {
     public void setProductManufacturer(String productManufacturer) {
         this.productManufacturer = productManufacturer;
     }
+
 }
